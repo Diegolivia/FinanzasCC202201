@@ -1,0 +1,189 @@
+<div class="background">
+  <div class="second-top">
+    <div class="info-profile">
+      <h3 class="name">{{this.name+" "+this.lastName}}</h3>
+      <div class="circle">
+        <img src="{{this.img}}" width="100%" height="100%">
+      </div>
+      <div class="aux-show">
+        <i class="fas fa-cog" (click)="this.showEditProfile()">
+        </i>
+        <div class="user-profile" *ngIf="showUserEdit==true">
+          <h6>Nombre:</h6>
+          <input [(ngModel)]="this.nameEdit">
+          <h6>Apellido:</h6>
+          <input [(ngModel)]="this.lastNameEdit">
+          <h6>Correo:</h6>
+          <input [(ngModel)]="this.emailEdit">
+          <!--<h6>Contraseña:</h6>
+          <input type="password">-->
+          <button class="button-disable" [ngClass]="{'button-calcular':this.nameEdit!=this.name || this.lastNameEdit!=lastName || this.emailEdit!=this.email}" (click)="this.clickEditProfile()">
+            Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="main-dashboard">
+    <div class="information-container">
+      <div class="title-bond"><h3 class="title">{{this.title}}</h3></div>
+      <div class="information">
+        <div class="about-bond">
+
+          <h3 class="title-info">Datos del Bono</h3>
+          <div class="row-select">
+            <h3 class="title-info">Valor nominal</h3>
+            <input onkeypress="return ((event.charCode >= 48 && event.charCode <= 57))" [(ngModel)]="this.priceN" class="input-1">
+          </div>
+          <div class="row-select">
+            <h3 class="title-info">Valor comercial</h3>
+            <input onkeypress="return ((event.charCode >= 48 && event.charCode <= 57))" [(ngModel)]="this.commercialValue" class="input-1">
+          </div>
+          <div class="row-select"><h3 class="title-info">Tipo de tasa</h3>
+            <select>
+              <option value="1">Efectiva</option>
+              <option value="2">Nominal</option>
+            </select>
+          </div>
+          <div class="row-select">
+            <h3 class="title-info">Tasa</h3>
+            <input onkeypress="return ((event.charCode >= 48 && event.charCode <= 57))" [(ngModel)]="this.rate" class="input-1">
+            <select [(ngModel)]="this.selectRate">
+              <option [value]="item.Time" *ngFor="let item of arrayLong">
+                {{item.Title}}
+              </option>
+            </select></div>
+          <div class="row-select"><h3 class="title-info">Capitalización</h3>
+            <select [(ngModel)]="this.capitalization">
+              <option [value]="item.Time" *ngFor="let item of arrayLong">
+                {{item.Title}}
+              </option>
+            </select>
+          </div>
+          <div class="row-select"><h3 class="title-info">Plazo</h3>
+            <input onkeypress="return ((event.charCode >= 48 && event.charCode <= 57))" [(ngModel)]="this.plazo" class="input-1">
+            <select [(ngModel)]="this.timeSelect">
+              <option [value]="item.Time" *ngFor="let item of arrayShort">
+                {{item.Title}}
+              </option>
+            </select></div>
+          <div class="row-select"><h3 class="title-info">Frecuencia del cupón</h3>
+            <select [(ngModel)]="this.selectFrequencyPayment">
+              <option [value]="item.Time" *ngFor="let item of arrayLong">
+                {{item.Title}}
+              </option>
+            </select>
+          </div>
+          <div class="row-select"><h3 class="title-info">Moneda</h3>
+            <select [(ngModel)]="this.money">
+              <option value="PEN">PEN</option>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+            </select>
+          </div>
+          <div class="row-select">
+            <h3 class="title-info">Tasa Anual de descuento</h3>
+            <input onkeypress="return ((event.charCode >= 48 && event.charCode <= 57))" [(ngModel)]="this.annualDiscountRate" class="input-1">
+          </div>
+          <div class="row-select"><h3 class="title-info">Método</h3>
+            <select [(ngModel)]="this.method">
+              <option value="Americano">Americano</option>
+              <option value="Aleman">Aleman</option>
+              <option value="Frances" >Frances</option>
+            </select>
+          </div>
+        </div>
+        <div class="about-bond-2">
+          <h3 class="title-info">Datos del Bono</h3>
+          <div class="row-select">
+            <h3 class="title-info">Prima (%)</h3>
+            <input onkeypress="return ((event.charCode >= 48 && event.charCode <= 57))" [(ngModel)]="prima" class="input-1">
+          </div>
+
+          <div class="row-select">
+            <h3 class="title-info">Estructuración (%)</h3>
+            <input onkeypress="return ((event.charCode >= 48 && event.charCode <= 57))" [(ngModel)]="structuring" class="input-1">
+          </div>
+
+          <div class="row-select">
+            <h3 class="title-info">Colocación (%)</h3>
+            <input onkeypress="return ((event.charCode >= 48 && event.charCode <= 57))" [(ngModel)]="placement" class="input-1">
+          </div>
+
+          <div class="row-select">
+            <h3 class="title-info">Flotación (%)</h3>
+            <input onkeypress="return ((event.charCode >= 48 && event.charCode <= 57))" [(ngModel)]="floatation" class="input-1">
+          </div>
+
+          <div class="row-select">
+            <h3 class="title-info">CAVALI (%)</h3>
+            <input onkeypress="return ((event.charCode >= 48 && event.charCode <= 57))" [(ngModel)]="CAVALI" class="input-1">
+          </div>
+          <div class="row-select">
+            <h3 class="title-info">Imp.a la renta (%)</h3>
+            <input onkeypress="return ((event.charCode >= 48 && event.charCode <= 57))" [(ngModel)]="rent" class="input-1">
+          </div>
+          <div class="row-select">
+            <h3 class="title-info">Fecha de emisión</h3>
+            <input onkeypress="return ((event.charCode >= 48 && event.charCode <= 57))" [(ngModel)]="this.dateBond" class="input-date" style="text-align: center" type="date">
+          </div>
+          <div class="row-select">
+            <h3 class="title-info">Monto</h3>
+            <input onkeypress="return ((event.charCode >= 48 && event.charCode <= 57))" [(ngModel)]="this.amount" class="input-1">
+          </div>
+        </div>
+        <div class="result-bond">
+          <div class="edit-bond">
+            <h3 class="title-info">Resultados</h3>
+            <!--<i (click)="editBond()" class="fas fa-save" ></i>-->
+          </div>
+          <h3 class="title-info">Valor actual: {{this.VAValue}}</h3>
+          <h3 class="title-info">VAN: {{this.VANValue}}</h3>
+          <h3 class="title-info">Duración: {{this.DurationValue}}</h3>
+          <h3 class="title-info">Duración modificada: {{this.DurationMValue}}</h3>
+          <h3 class="title-info">TIR: {{this.TIRValue}}</h3>
+          <h3 class="title-info">Convexidad: {{this.ConvexityValue}}</h3>
+          <h3 class="title-info">TCEA Emisor: {{this.TCEAEmitterValue}}</h3>
+          <h3 class="title-info">TCEA Emisor c/Escudo : {{this.TCEAEmitterShieldValue}}</h3>
+          <h3 class="title-info">TREA Bonista: {{this.TREABondholderValue}}</h3>
+          <div class="button-container">
+            <button (click)="this.cashFlow()" class="button-calcular">
+              Calcular</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="table-results">
+      <h5 class="title-container">Cronograma de pagos</h5>
+      <div class="table">
+        <table>
+          <thead>
+          <tr>
+            <th scope="col">Periodo</th>
+            <th scope="col">Fecha Programada</th>
+            <th scope="col">Saldo Inicial</th>
+            <th scope="col">Interes</th>
+            <th scope="col">Cuota</th>
+            <th scope="col">Amortización</th>
+            <th scope="col">Escudo</th>
+            <th scope="col">Flujo Emisor</th>
+            <th scope="col">SaldoF</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let fila of arrayRowTable;index as i" >
+            <td>{{fila.Periodo}}</td>
+            <td>{{fila.date}}</td>
+            <td>{{fila.SaldoI}}</td>
+            <td>{{fila.Interes}}</td>
+            <td>{{fila.Cuota}}</td>
+            <td>{{fila.Amort}}</td>
+            <td>{{fila.Escudo}}</td>
+            <td>{{fila.FlujoE}}</td>
+            <td>{{fila.SaldoF}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </section>
+</div>

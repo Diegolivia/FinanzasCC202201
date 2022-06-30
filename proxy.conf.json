@@ -1,0 +1,7 @@
+{
+  "/estadisticas/series/api/*": {
+    "target": "https://estadisticas.bcrp.gob.pe",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

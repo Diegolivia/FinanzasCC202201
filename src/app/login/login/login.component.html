@@ -1,0 +1,42 @@
+<div class="login-background">
+  <div class="login-left">
+    <h1>Finanzas</h1>
+  </div>
+  <div class="login-right">
+    <div class="form">
+      <div class="form-top">
+        <div [ngClass]="{'form-option':optionLogin==1,'form-none':optionLogin!=1}" (click)="clickChangeRegister()">
+          Login
+        </div>
+        <div [ngClass]="{'form-option':optionLogin!=1,'form-none':optionLogin==1}" (click)="clickChangeLogin()">
+          Register
+        </div>
+      </div>
+      <div *ngIf="optionLogin==1" class="form-contents">
+        <label class="name">Email</label>
+        <input [(ngModel)]="email" type="email">
+        <label class="name">Contraseña</label>
+        <input [(ngModel)]="password" type="password">
+        <label class="error" *ngIf="correct==false">*Datos incorrectos</label>
+        <button class="button-login" (click)="goToMain()">
+          Login
+        </button>
+      </div>
+      <div *ngIf="optionLogin==2" class="form-contents">
+        <label class="name">Nombre</label>
+        <input [(ngModel)]="name">
+        <label class="name">Apellido</label>
+        <input [(ngModel)]="lastName">
+        <label class="name">Email</label>
+        <input [(ngModel)]="email">
+        <label class="name">Contraseña</label>
+        <input [(ngModel)]="password" type="password">
+        <label class="name">Repita la contraseña</label>
+        <input [(ngModel)]="password2" type="password">
+        <button class="button-login" (click)="goToRegister()">
+          Register
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

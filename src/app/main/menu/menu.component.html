@@ -1,0 +1,55 @@
+<div class="background">
+  <div id="sideMenu" [ngClass]="{'menu-collapsed':expanded==false,'menu-expanded':expanded==true}">
+    <div class="header">
+      <div class="title">
+        Finanzas
+      </div>
+      <div class="menu">
+        <i class="fas fa-bars" (click)="expanded=!expanded"></i>
+      </div>
+    </div>
+    <div class="menu-items">
+      <div class="item">
+        <a routerLink="/MenuDashboard/Inicio" (mouseover)="select[0].selected=true" (mouseout)="select[0].selected=false"
+           routerLinkActive="active">
+          <div class="icon" *ngIf="select[0].selected==false"><i class="fas fa-home"></i></div>
+          <div class="icon-blue" *ngIf="select[0].selected==true"><i class="fas fa-home"></i></div>
+          <h2 *ngIf="expanded">{{this.links[0].label}}</h2>
+        </a>
+      </div>
+      <div class="item">
+        <a routerLink="/MenuDashboard/Segundo" (mouseover)="select[1].selected=true" (mouseout)="select[1].selected=false"
+           routerLinkActive="active">
+          <div class="icon" *ngIf="select[1].selected==false"><i class="fas fa-history"></i></div>
+          <div class="icon-blue" *ngIf="select[1].selected==true"><i class="fas fa-history"></i></div>
+          <h2 *ngIf="expanded">Historial</h2>
+        </a>
+      </div>
+      <div class="item" id="final">
+        <a (click)="out()" routerLink="/Login">
+          <div class="icon"><i  class="fas fa-power-off"></i></div>
+          <h2 *ngIf="expanded">Salir</h2>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!--<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed': ''">
+    <div class="logo-container">
+      <button class="logo" (click)="collapsed=!collapsed">F</button>
+      <div class="logo-text"  *ngIf="collapsed">Finanzas</div>
+    </div>
+    <ul class="sidenav-nav">
+      <li class="sidenav-nav-item">
+        <a href="" class="sidenav-nav-link" [routerLink]="links[0].link">
+          <i class="sidenav-link-icon" [class]="links[0].icon"></i>
+          <span class="sidenav-link-text" *ngIf="collapsed">{{links[0].label}}</span>
+        </a>
+      </li>
+    </ul>
+  </div>-->
+  <div [ngClass]="{'body-collapsed':expanded==false,'body-expanded':expanded==true}">
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,97 @@
+.login-background{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+.login-left{
+  display: flex;
+  justify-content: center;
+  font-family: 'Pacifico', cursive;
+  width: 50%;
+  height: 100%;
+  background: #24C6DC;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #514A9D, #24C6DC);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #514A9D, #24C6DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.login-left h1{
+  font-size: 40px;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.login-right {
+  width: 50%;
+  height: 100%;
+  background-color: #041528;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form{
+  width: 50%;
+  padding: 5px 10px;
+}
+.form-top{
+  height: 10%;
+  width: 100%;
+  display: flex;
+}
+.form-top div{
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.form-contents{
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.form-contents .name {
+  font-size: 16px;
+  color: #473E4D;
+  font-family: 'Montserrat', sans-serif;
+}
+.form-contents input{
+  margin:5px 0px 10px 0px;
+  color: white;
+  background-color: #000E1E;
+  border: solid 1px #000E1E;
+  border-radius: 5px;
+  height: 20px;
+  outline: none;
+  padding: 5px;
+}
+.form-none{
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  border-bottom: solid 5px #473E4D;
+}
+.form-option{
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  border-bottom: solid 5px white;
+}
+.button-login{
+  margin-top: 15px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background: #24C6DC;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #514A9D, #24C6DC);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #514A9D, #24C6DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+,*/
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  padding: 10px;
+  cursor: pointer;
+}
+.error{
+  margin: 0px;
+  padding: 0px;
+  color: #C70039;
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+}

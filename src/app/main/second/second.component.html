@@ -1,0 +1,468 @@
+<div class="background">
+  <div class="second-top">
+    <div class="info-profile">
+      <h3 class="name">{{this.name+" "+this.lastName}}</h3>
+      <div class="circle">
+        <img src="{{this.img}}" width="100%" height="100%">
+      </div>
+      <div class="aux-show">
+        <i class="fas fa-cog" (click)="this.showEditProfile()">
+        </i>
+        <div class="user-profile" *ngIf="showUserEdit==true">
+          <h6>Nombre:</h6>
+          <input [(ngModel)]="this.nameEdit">
+          <h6>Apellido:</h6>
+          <input [(ngModel)]="this.lastNameEdit">
+          <h6>Correo:</h6>
+          <input [(ngModel)]="this.emailEdit">
+          <!--<h6>Contraseña:</h6>
+          <input type="password">-->
+          <button class="button-disable" [ngClass]="{'button-calcular':this.nameEdit!=this.name || this.lastNameEdit!=lastName || this.emailEdit!=this.email}" (click)="this.clickEditProfile()">
+            Guardar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="main-dashboard">
+    <section class="main-top">
+      <div class="top-left">
+        <div class="foreign-exchange">
+          <div class="card-exchange">
+            <h2 class="title-card">
+              USD/PEN
+            </h2>
+            <div class="exchange">
+              <h3>{{this.valueUSDPEN}}</h3>
+            </div>
+            <div class="up-down">
+              <h5 [ngClass]="{'up':this.valueUSDPEN-beforeValueUSDPEN>0,'down':this.valueUSDPEN-beforeValueUSDPEN<0}">
+                {{this.beforeValueUSDPEN+"   "+this.diffUSDPEN}}
+                <i *ngIf="this.valueUSDPEN-beforeValueUSDPEN>0" class="fas fa-arrow-up"></i>
+                <i *ngIf="this.valueUSDPEN-beforeValueUSDPEN<0" class="fas fa-arrow-down"></i>
+              </h5>
+            </div>
+          </div>
+          <div class="card-exchange">
+            <h2 class="title-card">
+              EUR/PEN
+            </h2>
+            <div class="exchange">
+              <h3>{{this.valueEURPEN}}</h3>
+            </div>
+            <div class="up-down">
+              <h5 [ngClass]="{'up':this.valueEURPEN-beforeValueEURPEN>0,'down':this.valueEURPEN-beforeValueEURPEN<0}">
+                {{this.beforeValueEURPEN+"   "+this.diffEURPEN}}
+                <i *ngIf="this.valueEURPEN-beforeValueEURPEN>0" class="fas fa-arrow-up"></i>
+                <i *ngIf="this.valueEURPEN-beforeValueEURPEN<0" class="fas fa-arrow-down"></i>
+              </h5>
+            </div>
+          </div>
+          <div class="card-exchange">
+            <h2 class="title-card">
+              EUR/USD
+            </h2>
+            <div class="exchange">
+              <h3>{{this.valueEurDollar}}</h3>
+            </div>
+            <div class="up-down">
+              <h5 [ngClass]="{'up':this.valueEurDollar-beforeValueEurDollar>0,'down':this.valueEurDollar-beforeValueEurDollar<0}">
+                {{this.beforeValueEurDollar+"   "+this.diffEurDollar}}
+                <i *ngIf="this.valueEurDollar-beforeValueEurDollar>0" class="fas fa-arrow-up"></i>
+                <i *ngIf="this.valueEurDollar-beforeValueEurDollar<0" class="fas fa-arrow-down"></i>
+              </h5>
+            </div>
+          </div>
+        </div>
+        <section class="section-graphics" >
+          <div class="graph-pie">
+            <div class="graph-container">
+              <app-graphic-pie></app-graphic-pie>
+            </div>
+          </div>
+          <div class="graph">
+            <div class="graph-container-bar">
+              <app-graphic-bar></app-graphic-bar>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="top-right">
+        <div class="other-foreign-exchange">
+          <h2>Otras divisas</h2>
+          <div class="table-container">
+            <table class="table-exchanges">
+              <thead class="head-exchanges">
+              <tr>
+                <th scope="col">Moneda</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Mes</th>
+              </tr>
+              </thead>
+              <tbody class="body-exchanges">
+              <tr>
+                <td><div class="name-country">
+                  <div class="img-table-container">
+                    <img src="https://cdn-icons-png.flaticon.com/512/197/197375.png">
+                  </div>
+                  <div class="name-exchange">
+                    Yuan
+                  </div>
+                </div></td>
+                <td>{{this.valueYuan}}</td>
+                <td>{{this.monthYuan}}</td>
+              </tr>
+              <tr>
+                <td><div class="name-country">
+                  <div  class="img-table-container">
+                    <img src="https://cdn-icons-png.flaticon.com/512/197/197604.png">
+                  </div>
+                  <div class="name-exchange">
+                    Yen
+                  </div>
+                </div></td>
+                <td>{{this.valueYen}}</td>
+                <td>{{this.monthYen}}</td>
+              </tr>
+              <tr>
+                <td><div class="name-country">
+                  <div  class="img-table-container">
+                    <img src="https://cdn-icons-png.flaticon.com/512/197/197374.png">
+                  </div>
+                  <div class="name-exchange">
+                    Libra
+                  </div>
+                </div></td>
+                <td>{{this.valueLib}}</td>
+                <td>{{this.monthLib}}</td>
+              </tr>
+              <tr>
+                <td><div class="name-country">
+                  <div  class="img-table-container">
+                    <img src="https://cdn-icons-png.flaticon.com/512/197/197540.png">
+                  </div>
+                  <div class="name-exchange">
+                    Franco Suizo
+                  </div>
+                </div></td>
+                <td>{{this.valueFra}}</td>
+                <td>{{this.monthFra}}</td>
+              </tr>
+              <tr>
+                <td><div class="name-country">
+                  <div  class="img-table-container">
+                    <img src="https://cdn-icons-png.flaticon.com/512/197/197386.png">
+                  </div>
+                  <div class="name-exchange">
+                    Real Brasileño
+                  </div>
+                </div></td>
+                <td>{{this.valueReal}}</td>
+                <td>{{this.monthReal}}</td>
+              </tr>
+              <tr>
+                <td><div class="name-country">
+                  <div  class="img-table-container">
+                    <img src="https://cdn-icons-png.flaticon.com/512/197/197397.png">
+                  </div>
+                  <div class="name-exchange">
+                    Peso Mexicano
+                  </div>
+                </div></td>
+                <td>{{this.valuePeso}}</td>
+                <td>{{this.monthPeso}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="main-bottom" >
+      <div class="table-results-container">
+        <h5 class="title-container">Custodia de valores (por tipo de activo y moneda) PEN</h5>
+        <div class="table">
+          <table class="table-results">
+            <thead class="head-results">
+            <tr>
+              <th>Valor</th>
+              <th>Cantidad</th>
+              <th>Valor Nominal</th>
+              <th>Precio de Compra</th>
+              <th>Inversión</th>
+              <th>Precio de Mercado</th>
+              <th>Valor de Mercado</th>
+              <th>Ganancia/Perdida</th>
+              <th>Rentabilidad</th>
+              <th>Portafolio</th>
+              <th>Duración</th>
+              <!--<th>Duración mod.</th>-->
+              <th>Convexidad</th>
+              <!--<th>TCEA Emi.</th>
+              <th>TREA Bon.</th>-->
+              <!--<th>Metodo</th>
+              <th>Acción</th>-->
+            </tr>
+            </thead>
+            <tbody class="body-results">
+            <tr *ngFor="let fila of arrayPen;index as i" (click)="getBondId(fila.id)">
+              <td>{{fila.title}}</td>
+              <td>{{fila.amount}}</td>
+              <td>{{fila.price}}</td>
+              <td>{{fila.commercialValue}}</td>
+              <td>{{(fila.inv).toFixed(2)}}</td>
+              <td>{{(fila.marketPrice).toFixed(2)}}</td>
+              <td>{{(fila.marketValue).toFixed(2)}}</td>
+              <td>{{(fila.profitLost).toFixed(2)}}</td>
+              <td>{{(fila.profitability).toFixed(2)}}</td>
+              <td>{{(fila.briefcase).toFixed(2)}}</td>
+              <td>{{(fila.duration).toFixed(2)}}</td>
+              <td>{{(fila.convexity).toFixed(2)}}</td>
+              <!--<td>{{(fila.profitability).toFixed(2)}}</td>
+              <td>{{(fila.percent).toFixed(2)}}</td>
+              <td>{{fila.tir}}</td>
+              <td>{{fila.duration}}</td>-->
+
+              <!--<td>{{fila.modifiedDuration}}</td>-->
+
+              <!-- <td>{{fila.convexity}}</td>-->
+
+              <!--<td>{{fila.tceaEmitter}}</td>
+              <td>{{fila.treaBond}}</td>-->
+              <!--<td>{{fila.method}}</td>
+              <td>Eliminar</td>-->
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="totales">
+          <h1>Inversión total: {{this.invTotalPen.toFixed(2)}}</h1>
+          <h1>Valor de mercado total: {{this.marketValueTotal.toFixed(2)}}</h1>
+          <h1><h1>Ganancias/Perdida total: {{this.profitLostPen.toFixed(2)}}</h1></h1>
+        </div>
+      </div>
+    </section>
+    <section class="row-usd" >
+      <section class="table-usd">
+        <div class="table-results-container">
+          <h5 class="title-container">Custodia de valores (por tipo de activo y moneda) USD</h5>
+          <div class="table">
+            <table class="table-results">
+              <thead class="head-results">
+              <tr>
+                <th>Valor</th>
+                <th>Cantidad</th>
+                <th>Valor Nominal</th>
+                <th>Precio de Compra</th>
+                <th>Inversión</th>
+                <th>Precio de Mercado</th>
+                <th>Valor de Mercado</th>
+                <th>Ganancia/Perdida</th>
+                <th>Rentabilidad</th>
+                <th>Portafolio</th>
+                <th>Duración</th>
+                <!--<th>Duración mod.</th>-->
+                <th>Convexidad</th>
+                <!--<th>TCEA Emi.</th>
+                <th>TREA Bon.</th>-->
+                <!--<th>Metodo</th>
+                <th>Acción</th>-->
+              </tr>
+              </thead>
+              <tbody class="body-results">
+              <tr *ngFor="let fila of arrayUsd;index as i" (click)="getBondId(fila.id)">
+                <td>{{fila.title}}</td>
+                <td>{{fila.amount}}</td>
+                <td>{{fila.price}}</td>
+                <td>{{fila.commercialValue}}</td>
+                <td>{{(fila.inv).toFixed(2)}}</td>
+                <td>{{(fila.marketPrice).toFixed(2)}}</td>
+                <td>{{(fila.marketValue).toFixed(2)}}</td>
+                <td>{{(fila.profitLost).toFixed(2)}}</td>
+                <td>{{(fila.profitability).toFixed(2)}}</td>
+                <td>{{(fila.briefcase).toFixed(2)}}</td>
+                <td>{{(fila.duration).toFixed(2)}}</td>
+                <td>{{(fila.convexity).toFixed(2)}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="totales">
+            <h1>Inversión total: {{this.invTotalUsd.toFixed(2)}}</h1>
+            <h1>Valor de mercado total: {{this.marketValueTotalUsd.toFixed(2)}}</h1>
+            <h1><h1>Ganancias/Perdida total: {{this.profitLostUsd.toFixed(2)}}</h1></h1>
+          </div>
+        </div>
+      </section>
+    </section>
+    <section class="row-usd" >
+      <section class="table-usd">
+        <div class="table-results-container">
+          <h5 class="title-container">Custodia de valores (por tipo de activo y moneda) EUR</h5>
+          <div class="table">
+            <table class="table-results">
+              <thead class="head-results">
+              <tr>
+                <th>Valor</th>
+                <th>Cantidad</th>
+                <th>Valor Nominal</th>
+                <th>Precio de Compra</th>
+                <th>Inversión</th>
+                <th>Precio de Mercado</th>
+                <th>Valor de Mercado</th>
+                <th>Ganancia/Perdida</th>
+                <th>Rentabilidad</th>
+                <th>Portafolio</th>
+                <th>Duración</th>
+                <!--<th>Duración mod.</th>-->
+                <th>Convexidad</th>
+                <!--<th>TCEA Emi.</th>
+                <th>TREA Bon.</th>-->
+                <!--<th>Metodo</th>
+                <th>Acción</th>-->
+              </tr>
+              </thead>
+              <tbody class="body-results">
+              <tr *ngFor="let fila of arrayEur;index as i" (click)="getBondId(fila.id)">
+                <td>{{fila.title}}</td>
+                <td>{{fila.amount}}</td>
+                <td>{{fila.price}}</td>
+                <td>{{fila.commercialValue}}</td>
+                <td>{{(fila.inv).toFixed(2)}}</td>
+                <td>{{(fila.marketPrice).toFixed(2)}}</td>
+                <td>{{(fila.marketValue).toFixed(2)}}</td>
+                <td>{{(fila.profitLost).toFixed(2)}}</td>
+                <td>{{(fila.profitability).toFixed(2)}}</td>
+                <td>{{(fila.briefcase).toFixed(2)}}</td>
+                <td>{{(fila.duration).toFixed(2)}}</td>
+                <td>{{(fila.convexity).toFixed(2)}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="totales">
+            <h1>Inversión total: {{this.invTotalEur.toFixed(2)}}</h1>
+            <h1>Valor de mercado total: {{this.marketValueTotalEur.toFixed(2)}}</h1>
+            <h1>Ganancias/Perdida total: {{this.profitLostEur.toFixed(2)}}</h1>
+          </div>
+        </div>
+      </section>
+    </section>
+  </section>
+
+  <!--<section class="banner" [@enterState]>
+    <div>
+      <p>
+        Guarda las operaciones importante para analizarlas más tarde
+      </p>
+    </div>
+    <img src="https://images.vexels.com/media/users/3/210434/isolated/preview/ad1f02838cc1708abd60437127a486d5-persona-reclinada-con-caracter-de-lista.png">
+  </section>
+  <div class="container-list" [@enterStateY]>
+    <div class="title">
+     <h2>Datos guardados</h2>
+    </div>
+    <div class="list-folder" id="list-folder-id" #asContainer>
+      <div class="inner">
+        <div class="track" #asTrack>
+          <div *ngFor="let bond of arrayBonds;index as i" class="container-folder" >
+            <div class="folder">
+              <p>{{bond.title}}</p>
+              <h5 class="date">{{bond.date}}</h5>
+              <div class="go-data">
+                <h5>Ver</h5>
+                <i class="fas fa-arrow-alt-circle-right"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>-->
+
+      <!--<div class="container-folder" #asContainer>
+        <div class="folder">
+          <p>Aqui hay algo</p>
+          <h5 class="date">17-02-2022</h5>
+          <div class="go-data">
+            <h5>Ver</h5>
+            <i class="fas fa-arrow-alt-circle-right"></i>
+          </div>
+        </div>
+      </div>
+      <div class="container-folder">
+        <div class="folder">
+          <p>Aqui hay algo</p>
+          <h5 class="date">17-02-2022</h5>
+          <div class="go-data">
+            <h5>Ver</h5>
+            <i class="fas fa-arrow-alt-circle-right"></i>
+          </div>
+        </div>
+      </div>
+      <div class="container-folder">
+        <div class="folder">
+          <p>Aqui hay algo</p>
+          <h5 class="date">17-02-2022</h5>
+          <div class="go-data">
+            <h5>Ver</h5>
+            <i class="fas fa-arrow-alt-circle-right"></i>
+          </div>
+        </div>
+      </div>
+      <div class="container-folder">
+        <div class="folder">
+          <p>Aqui hay algo</p>
+          <h5 class="date">17-02-2022</h5>
+          <div class="go-data">
+            <h5>Ver</h5>
+            <i class="fas fa-arrow-alt-circle-right"></i>
+          </div>
+        </div>
+      </div>
+      <div class="container-folder">
+        <div class="folder">
+          <p>Aqui hay algo</p>
+          <h5 class="date">17-02-2022</h5>
+          <div class="go-data">
+            <h5>Ver</h5>
+            <i class="fas fa-arrow-alt-circle-right"></i>
+        </div>
+      </div>
+
+      </div>
+      <div class="container-folder">
+        <div class="folder">
+          <p>Aqui hay algo</p>
+          <h5 class="date">17-02-2022</h5>
+          <div class="go-data">
+            <h5>Ver</h5>
+            <i class="fas fa-arrow-alt-circle-right"></i>
+          </div>
+        </div>
+      </div>
+      <div class="container-folder">
+        <div class="folder">
+          <p>Aqui hay algo</p>
+          <h5 class="date">17-02-2022</h5>
+          <div class="go-data">
+            <h5>Ver</h5>
+            <i class="fas fa-arrow-alt-circle-right"></i>
+          </div>
+        </div>
+      </div>
+      <div class="container-folder">
+        <div class="folder">
+          <p>Aqui hay algo</p>
+          <h5 class="date">17-02-2022</h5>
+          <div class="go-data">
+            <h5>Ver</h5>
+            <i class="fas fa-arrow-alt-circle-right"></i>
+          </div>
+        </div>
+      </div>-->
+    <!--</div>
+    <div class="buttons">
+      <i class="fas fa-angle-double-left" (click)="Previous()" [ngClass]="{'hiden':maxPrevious==true,'button-slide':maxPrevious==false}"></i>
+      <i class="fas fa-angle-double-right" (click)="Next()" [ngClass]="{'hiden':maxNext==true,'button-slide':maxNext==false}"></i>
+    </div>
+  </div>-->
+</div>

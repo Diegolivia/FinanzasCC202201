@@ -1,0 +1,103 @@
+{
+  "Users": [
+    {
+      "id": 1,
+      "name": "Carlos",
+      "lastName": "Jimenez",
+      "email": "Carlos123@gmail.com",
+      "img": "https://img.freepik.com/foto-gratis/retrato-joven-sonriente-gafas_171337-4842.jpg?w=2000",
+      "password": "12345678"
+    },
+    {
+      "id": 2,
+      "name": "Sergio",
+      "lastName": "Guanilo",
+      "email": "Sergio123@gmail.com",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKHdD5ry7SlwlmOOxVeQ4lbXuC--5s3pMHjn_UJCqipSllLCkvv8gGwOmDkBcte6kqMZ4&usqp=CAU",
+      "password": "12345678"
+    }
+  ],
+  "Bonds": [],
+  "InformationBonds": [
+    {
+      "id": 1,
+      "userId": 2,
+      "resultBondId": 1,
+      "title": "Frances 1",
+      "date": "2022-6-21",
+      "nominalValue": "1500",
+      "commercialValue": 1050,
+      "interestType": 1,
+      "rate": 8,
+      "selectRate": 360,
+      "capitalization": 30,
+      "timeLimit": 5,
+      "selectTimeLimit": 360,
+      "selectFrequencyPayment": 180,
+      "money": "PEN",
+      "annualDiscountRate": 4.5,
+      "method": "Frances",
+      "prima": 1,
+      "structuring": 1,
+      "placement": 0.5,
+      "floatation": 0.45,
+      "cavali": 0.25,
+      "rent": 30,
+      "amount": 10
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "resultBondId": 2,
+      "title": "Americano 1",
+      "date": "2022-6-21",
+      "nominalValue": "1200",
+      "commercialValue": 1050,
+      "interestType": 1,
+      "rate": 8,
+      "selectRate": 360,
+      "capitalization": 30,
+      "timeLimit": 5,
+      "selectTimeLimit": 360,
+      "selectFrequencyPayment": 180,
+      "money": "USD",
+      "annualDiscountRate": "9",
+      "method": "Americano",
+      "prima": 1,
+      "structuring": 1,
+      "placement": 0.5,
+      "floatation": 0.45,
+      "cavali": 0.25,
+      "rent": 30,
+      "amount": 10
+    }
+  ],
+  "ResultBonds": [
+    {
+      "id": 1,
+      "userId": 2,
+      "va": 1636.941,
+      "van": 136.941,
+      "duration": 2.661,
+      "convexity": 10.023,
+      "title": "Frances 1",
+      "price": 1500,
+      "commercialValue": 1050,
+      "amount": 10,
+      "money": "PEN"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "va": 1162.006,
+      "van": -37.994,
+      "duration": 4.218,
+      "convexity": 20.043,
+      "title": "Americano 1",
+      "price": 1200,
+      "commercialValue": 1050,
+      "amount": 10,
+      "money": "USD"
+    }
+  ]
+}

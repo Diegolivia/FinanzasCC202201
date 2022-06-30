@@ -1,0 +1,299 @@
+.background{
+  background-color: #000E1E;
+  width: 100%;
+  height: 100vh;
+}
+.second-top{
+  background-color: #041528;
+  margin-left: 10px;
+  margin-top: 0px;
+  width: calc(100% - 10px);
+  height: 60px;
+  display: flex;
+  justify-content: flex-end;
+}
+.info-profile{
+  width: 30%;
+  height: 100%;
+  border-left: solid 5px #000E1E;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.name{
+  width: 35%;
+  font-size: 16px;
+  color: #BEBFC0;
+  padding: 5px 5px 10px 5px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.circle{
+  width: 15%;
+  height: 80%;
+  background-color: #ccd2cc;
+  border-radius:50%;
+}
+.circle img{
+  border-radius: 50%;
+}
+.aux-show{
+  position: relative;
+}
+.info-profile i{
+  margin-left: 15px;
+  color: #BEBFC0;
+  cursor: pointer;
+}
+.user-profile{
+  text-align: center;
+  padding: 10px 12px 10px 12px;
+  position: absolute;
+  top: 125%;
+  right: 0%;
+  width: 250px;
+  height: 280px;
+  z-index: 1;
+  background: rgb(0, 35, 68);
+  cursor: auto;
+}
+.user-profile::before{
+  content: '';
+  position: absolute;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 3px solid transparent;
+  border-bottom: 10px solid rgb(0, 35, 68);
+  right: 0%;
+  top: -10px;
+}
+.user-profile h6{
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  margin: 0px;
+  padding: 0px;
+  color: #BEBFC0;
+}
+.user-profile input{
+  width: 60%;
+  margin: 3% 0px 3% 0px;
+  border-radius: 10px;
+  border: solid 1px #031223;
+  background-color: #031223;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  padding: 3px;
+  outline: none;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.user-profile button{
+  margin-left: 0px;
+  margin-top: 9%;
+}
+.button-disable{
+  background: #24C6DC;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, rgba(81, 74, 157, 0.84), rgba(36, 198, 220, 0.83));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, rgba(81, 74, 157, 0.82), rgba(36, 198, 220, 0.82));
+  padding: 10px 15px;
+  margin-right: 10px;
+  border: none;
+  margin-top: 20px;
+  border: none;
+  color: #5a5a5a;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 5px;
+  pointer-events: none;
+}
+.button-calcular{
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+  background: #24C6DC;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #514A9D, #24C6DC);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #514A9D, #24C6DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+,*/
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  padding: 10px 15px;
+  margin-right: 10px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.main-dashboard{
+  padding: 15px 20px 10px 40px;
+  margin: 0;
+}
+.information-container{
+  width: 100%;
+  height: 61vh;
+}
+.title-bond{
+  margin: 0px;
+  width: 100%;
+}
+.title{
+  margin: 0px 0px 8px 0px;
+  padding: 0px;
+  font-size: 22px;
+  color: white;
+  text-align: left;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.title-info{
+  margin: 10px 0px 5px 10px;
+  padding: 0px;
+  font-size: 17px;
+  color: white;
+  text-align: left;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.row-select{
+  margin: 8px 0px 5px 10px;
+}
+.row-select h3{
+  margin: 0px;
+}
+.row-select select{
+  margin-left: 10px;
+  border-radius: 5px;
+  border: none;
+  padding: 1px;
+  color: white;
+  background-color: #000E1E;
+  outline: none;
+}
+.row-select .input-1{
+  margin-left: 10px;
+  width: 25%;
+  border-radius: 10px;
+  border: solid 3px #000E1E;
+  background-color: #000E1E;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 12px;
+  color: white;
+  padding: 2px;
+  height: 12px;
+  outline: none;
+}
+.input-date{
+  margin-left: 10px;
+  width: 25%;
+  border-radius: 10px;
+  border: solid 3px #000E1E;
+  background-color: #000E1E;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 12px;
+  color: white;
+  padding: 2px;
+  height: 12px;
+  outline: none;
+  width: 32%;
+}
+.row-select .title-info, .row-select select, .row-select .input-1{
+  display: inline-block;
+}
+.information{
+  width: 100%;
+  height: 91%;
+  display: flex;
+}
+.about-bond{
+  width: 28%;
+  height: 100%;
+  background-color: #041528;
+  border-radius: 15px;
+}
+.about-bond-2{
+  width: 28%;
+  height: 100%;
+  background-color: #041528;
+  border-radius: 15px;
+  margin-left: 50px;
+}
+.result-bond{
+  margin-left: 50px;
+  width: 28%;
+  height: 100%;
+  background-color: #041528;
+  border-radius: 15px;
+}
+.title-container{
+  color: white;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 15px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+.table-results{
+  margin-top: 2vh;
+  width: 100%;
+  height: 33vh;
+  background-color: #041528;
+  border-radius: 15px;
+}
+.table{
+  padding: 0px 5px 0px 0px;
+  overflow-y: auto;
+  overflow-x: auto;
+  height: 78%;
+  width: 96%;
+}
+::-webkit-scrollbar{
+  width: 8px; /*para el vertical*/
+  height: 8px;/*para el horizontal*/
+  background-color: #011935;
+}
+::-webkit-scrollbar-corner {
+  background-color: #011935;
+}
+::-webkit-scrollbar-track{
+  border-radius: 5px;
+  background-color: rgba(27, 43, 62,.4);
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 5px;
+  background-color: #011935;
+}
+table{
+  border-collapse: collapse;
+}
+th{
+  width: 13%;
+  padding: 5px;
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  font-size: 15px;
+}
+td{
+  width: 13%;
+  padding: 5px;
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+  color: #858585;
+  font-size: 13px;
+}
+.button-container{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.button-container button{
+  height: 30px;
+  margin: 0px;
+  padding: 5px;
+  text-align: center;
+  margin-right: 10px;
+}
+.edit-bond {
+  display: flex;
+}
+.edit-bond i{
+  margin: 15px 0px 5px 10px;
+  font-size: 15px;
+  color: white;
+  cursor: pointer;
+}
+.edit-bond .title-info, .edit-bond i{
+  display: inline-block;
+}

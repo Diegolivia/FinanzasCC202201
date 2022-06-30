@@ -1,0 +1,273 @@
+<div class="background">
+<div class="first-top">
+  <div class="title-bond">
+    <div class="title-row">
+      <h5>Título:</h5>
+      <input class="title-input" [(ngModel)]="titleBond" maxlength="30">
+    </div>
+    <div class="title-row">
+      <h5>Cantidad:</h5>
+      <input class="title-input" [(ngModel)]="amount" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57))">
+    </div>
+  </div>
+  <div class="info-profile">
+    <h3 class="name">{{this.name+" "+this.lastName}}</h3>
+    <div class="circle">
+      <img src="{{this.img}}" width="100%" height="100%">
+    </div>
+    <div class="aux-show">
+      <i class="fas fa-cog" (click)="this.showEditProfile()">
+      </i>
+      <div class="user-profile" *ngIf="showUserEdit==true">
+        <h6>Nombre:</h6>
+        <input [(ngModel)]="this.nameEdit">
+        <h6>Apellido:</h6>
+        <input [(ngModel)]="this.lastNameEdit">
+        <h6>Correo:</h6>
+        <input [(ngModel)]="this.emailEdit">
+        <!--<h6>Contraseña:</h6>
+        <input type="password">-->
+        <button class="button-disable" [ngClass]="{'button-calcular':this.nameEdit!=this.name || this.lastNameEdit!=lastName || this.emailEdit!=this.email}" (click)="this.clickEditProfile()">
+          Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main-dashboard">
+  <h3 [@enterState]>
+    Bienvenido
+  </h3>
+  <div class="main-dashboard-contents">
+    <div class="main-dashboard-top">
+      <div class="container-one" [@enterState]>
+        <div class="Prices">
+          <div class="prices-cont">
+            <h5 class="title-container">Valor Nominal</h5>
+            <input type="text" class="input-1" [(ngModel)]="priceN" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57)||event.charCode==46)" min="1">
+          </div>
+          <div class="prices-cont">
+            <h5 class="title-container">Valor Comercial</h5>
+            <input type="text" class="input-1" [(ngModel)]="commercialValue" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57)||event.charCode==46)" min="1">
+          </div>
+        </div>
+        <!--<div class="Prices">
+          <div class="prices-cont">
+            <h5 class="title-container">Valor Nominal</h5>
+            <input type="text" class="input-1" [(ngModel)]="priceN" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57)||event.charCode==46)" min="1">
+          </div>
+          <div class="prices-cont">
+            <h5 class="title-container">Valor Comercial</h5>
+            <input type="text" class="input-1" [(ngModel)]="commercialValue" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57)||event.charCode==46)" min="1">
+          </div>
+        </div>-->
+        <div class="options">
+          <div [ngClass]="{'form-option':interestOption==1,'form-none':interestOption!=1}" (click)="clickChangeIC()">
+            Interes efectivo
+          </div>
+          <div [ngClass]="{'form-option':interestOption!=1,'form-none':interestOption==1}" (click)="clickChangeIE()">
+            Interes nominal
+          </div>
+        </div>
+        <div class="container-interest">
+          <!--<div class="interest-left">
+            <h5 class="title-container">Tasa nominal</h5>
+
+              <input type="text" class="input-TN" [(ngModel)]="TN" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57)||event.charCode==46)" min="1">
+              <label>%</label>
+              <select [(ngModel)]="selectTN" class="select-time-1">
+                <option [value]="item.time" *ngFor="let item of arrayTN">{{item.timeName}}</option>
+              </select>
+
+          </div>
+          <div class="interest-right">
+            <h5 class="title-container">Capitalizacion</h5>
+              <select [(ngModel)]="capitalizationSelect" class="select-time-1">
+                <option [value]="item2.time" *ngFor="let item2 of arrayCapitalization">{{item2.timeName}}</option>
+              </select>
+          </div>-->
+          <div class="interest-left">
+            <h5 *ngIf="interestOption==1" class="title-container">Tasa efectiva</h5>
+            <h5 *ngIf="interestOption!=1" class="title-container">Tasa nominal</h5>
+            <input type="text" class="input-TN" [(ngModel)]="rate" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57)||event.charCode==46)" min="1">
+            <label>%</label>
+            <select [(ngModel)]="selectRate" class="select-time-1">
+              <option [value]="item.Time" *ngFor="let item of arrayLong">{{item.Title}}</option>
+            </select>
+          </div>
+
+          <div *ngIf="interestOption!=1" class="interest-right">
+            <h5 class="title-container">Capitalización</h5>
+            <select [(ngModel)]="capitalization" class="select-time-1">
+              <option [value]="item2.Time" *ngFor="let item2 of arrayLong">{{item2.Title}}</option>
+            </select>
+            <!--<select [(ngModel)]="selectPrueba" class="select-time-1">
+              <option [value]="item2.Time" *ngFor="let item2 of arrayPrueba">{{item2.Name}}</option>
+            </select>-->
+          </div>
+        </div>
+      </div>
+      <div class="graphic" [@enterStateY2]>
+        <app-graphic-line></app-graphic-line>
+      </div>
+      <div class="main-dashboard-medium">
+        <div class="container-two" [@enterState]>
+
+          <div class="second-row">
+            <div class="second-row-left">
+              <h5 class="title-container">Plazo</h5>
+              <input type="text" class="input-2" [(ngModel)]="plazo" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" min="1">
+              <select [(ngModel)]="timeSelect" class="select-time">
+                <option [value]="item.Time" *ngFor="let item of arrayShort">{{item.Title}}</option>
+              </select>
+              <h6 class="alert-validator" *ngIf="plazo==''">*Dato necesario</h6>
+            </div>
+            <div class="second-row-right">
+              <h5 class="title-container">Método</h5>
+              <select [(ngModel)]="method" class="select-time">
+                <option value="Americano">Americano</option>
+                <option value="Aleman">Aleman</option>
+                <option value="Frances" >Frances</option>
+              </select>
+            </div>
+          </div>
+          <div class="second-row">
+            <div class="second-row-left">
+            <h5 class="title-container">Frecuencia del cupón</h5>
+            <select [(ngModel)]="selectFrequencyPayment" class="select-time">
+              <option [value]="item.Time" *ngFor="let item of arrayLong">{{item.Title}}</option>
+            </select>
+            </div>
+            <div class="second-row-right">
+              <h5 class="title-container">Fecha de emisión</h5>
+              <input type="date" class="input-2" [(ngModel)]="this.dateBond">
+            </div>
+          </div>
+          <h5 class="title-container">Moneda</h5>
+          <select [(ngModel)]="this.typeMoney" class="select-time">
+            <option value="PEN">PEN</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+          </select>
+          <h5 class="title-container">Tasa anual de descuento</h5>
+          <div>
+            <input type="text" class="input-2 desc" [(ngModel)]="annualDiscountRate" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57)||event.charCode==46)" min="1">
+            <label>%</label>
+            <!--<select [(ngModel)]="selectTasaInteresMercado" class="select-time">
+              <option [value]="item.Time" *ngFor="let item of arrayLong">{{item.Title}}</option>
+            </select>-->
+          </div>
+          <!--<h5 class="title-container">Impuesto a la renta</h5>
+          <div>
+            <input type="text" class="input-2" [(ngModel)]="annualDiscountRate" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57)||event.charCode==46)" min="1">
+            <label>%</label>
+          </div>-->
+        </div>
+
+
+        <div class="container-three" [@enterStateX2]>
+          <div class="container-three-left">
+            <div class="container-three-left-aux">
+              <h5 class="title-container">Prima(%)</h5>
+              <input type="text" class="input-TN" [(ngModel)]="prima" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57)||event.charCode==46)" min="1">
+              <h5 class="title-container">Estructuración(%)</h5>
+              <input type="text" class="input-TN" [(ngModel)]="structuring" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57)||event.charCode==46)" min="1">
+              <h5 class="title-container">Colocación(%)</h5>
+              <input type="text" class="input-TN" [(ngModel)]="placement" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57)||event.charCode==46)" min="1">
+            </div>
+          </div>
+          <div class="container-three-right">
+            <div class="container-three-right-aux">
+              <h5 class="title-container">Flotación(%)</h5>
+              <input type="text" class="input-TN" [(ngModel)]="floatation" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57)||event.charCode==46)" min="1">
+              <h5 class="title-container">CAVALI(%)</h5>
+              <input type="text" class="input-TN" [(ngModel)]="CAVALI" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57)||event.charCode==46)" min="1">
+              <h5 class="title-container">Imp. a la renta(%)</h5>
+              <input type="text" class="input-TN" [(ngModel)]="rent" onkeypress="return ((event.charCode >= 48 && event.charCode <= 57)||event.charCode==46)" min="1">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <button class="button-calcular" (click)="this.cashFlow()" [@enterStateX2]>Calcular bono</button>
+
+    <div class="main-dashboard-bottom">
+      <div class="container-four" [@enterStateY]>
+        <h5 class="title-container">Cronograma de pagos</h5>
+        <div class="table">
+          <table>
+            <thead>
+            <tr>
+              <th scope="col">Periodo</th>
+              <th scope="col">Fecha Programada</th>
+              <th scope="col">Saldo Inicial</th>
+              <th scope="col">Interes</th>
+              <th scope="col">Cuota</th>
+              <th scope="col">Amortización</th>
+              <th scope="col">Escudo</th>
+              <th scope="col">Flujo Emisor</th>
+              <th scope="col">SaldoF</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let fila of arrayRowTable;index as i" >
+              <td>{{fila.Periodo}}</td>
+              <td>{{fila.date}}</td>
+              <td>{{fila.SaldoI}}</td>
+              <td>{{fila.Interes}}</td>
+              <td>{{fila.Cuota}}</td>
+              <td>{{fila.Amort}}</td>
+              <td>{{fila.Escudo}}</td>
+              <td>{{fila.FlujoE}}</td>
+              <td>{{fila.SaldoF}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="container-five" [@enterStateY]>
+        <div class="save">
+          <h5 class="title-container">Resultados</h5><i class="fas fa-save" (click)="this.saveBond()" *ngIf="this.arrayRowTable.length>0"></i>
+        </div>
+        <div class="result">
+          <h2>Valor actual:</h2>
+          <h5 class="response">{{this.VAValue}}</h5>
+        </div>
+        <div class="result">
+          <h2>VAN:</h2>
+          <h5 class="response">{{this.VANValue}}</h5>
+        </div>
+        <div class="result">
+          <h2>Duración:</h2>
+          <h5 class="response">{{this.DurationValue}}</h5>
+        </div>
+        <div class="result">
+          <h2>Duración Modificada:</h2>
+          <h5 class="response">{{this.DurationMValue}}</h5>
+        </div>
+        <div class="result">
+          <h2>TIR:</h2>
+          <h5 class="response" [ngClass]="{'negative':TIRValue<0}">{{this.TIRValue+ "%"}}</h5>
+        </div>
+        <div class="result">
+          <h2>Convexidad:</h2>
+          <h5 class="response">{{this.ConvexityValue}}</h5>
+        </div>
+        <div class="result">
+          <h2>TCEA Emisor:</h2>
+          <h5 class="response">{{this.TCEAEmitterValue+ "%"}}</h5>
+        </div>
+        <div class="result">
+          <h2>TCEA Emisor c/Escudo:</h2>
+          <h5 class="response">{{this.TCEAEmitterShieldValue+ "%"}}</h5>
+        </div>
+        <div class="result">
+          <h2>TREA Bonista:</h2>
+          <h5 class="response">{{this.TREABondholderValue+ "%"}}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
